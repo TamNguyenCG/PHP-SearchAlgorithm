@@ -32,8 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $length = strlen($input);
     $limitHigh = 10;
     $limitLow = 9;
-    if($length > $limitHigh || $length < $limitLow){
-        echo "<h3>Wrong type of phone number</h3>";
+    if(empty($input)){
+        echo "<h2>Wrong type of phone number</h2>";
+        return;
+    }elseif($length > $limitHigh || $length < $limitLow){
+        echo "<h2>Wrong type of phone number</h2>";
         return;
     }
     $viettel = ["0162", "0163", "0164", "0165", "0166", "0167", "0168", "0169", "032", "033", "034", "035", "036", "037", "038", "039"];
